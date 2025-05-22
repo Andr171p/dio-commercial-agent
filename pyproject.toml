@@ -1,0 +1,19 @@
+[project]
+name = "diocommercialagent"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "dishka>=1.6.0",
+    "fastapi[all]>=0.115.12",
+    "langchain>=0.3.25",
+    "langchain-community>=0.3.24",
+    "langchain-gigachat>=0.3.10",
+    "langchain-huggingface>=0.2.0",
+    "langchain-pinecone>=0.2.6",
+    "langgraph>=0.4.5",
+    "langgraph-supervisor>=0.0.23",
+    "pandas>=2.2.3",
+    "redis>=6.1.0",
+    "xlrd>=2.0.1",
+]
