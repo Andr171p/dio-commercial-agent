@@ -13,7 +13,7 @@ from .infrastructure.llms.yandex_gpt import YandexGPTChatModel
 from .infrastructure.checkpointers.redis import AsyncRedisCheckpointSaver
 from .infrastructure.vector_store import ServicesIndex, PriceListIndex
 
-from .agentic.agents.supervisor.nodes import SupervisorAgent, AdviserAgent, PriceListAgent
+from .agentic.agents.supervisor.nodes import SupervisorAgent, ConsultantAgent, PriceListAgent
 from .agentic.multi_agentic import CommercialAgent
 
 from .base import AIAgent
@@ -71,12 +71,12 @@ class AppProvider(Provider):
         )
 
     @provide(scope=Scope.APP)
-    def get_adviser_agent(
+    def get_consultant_agent(
             self,
             vector_store: ServicesIndex,
             model: BaseChatModel
-    ) -> AdviserAgent:
-        return AdviserAgent(
+    ) -> ConsultantAgent:
+        return ConsultantAgent(
             vector_store=vector_store,
             model=model,
             top_k=TOP_K
@@ -102,13 +102,13 @@ class AppProvider(Provider):
     def get_ai_agent(
             self,
             supervisor: SupervisorAgent,
-            adviser: AdviserAgent,
+            consultant: ConsultantAgent,
             price_list: PriceListAgent,
             checkpoint_saver: BaseCheckpointSaver
     ) -> AIAgent:
         return CommercialAgent(
             supervisor=supervisor,
-            adviser=adviser,
+            consultant=consultant,
             price_list=price_list,
             checkpoint_saver=checkpoint_saver
         )

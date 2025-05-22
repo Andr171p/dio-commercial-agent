@@ -188,6 +188,7 @@ dependencies = [
     { name = "langgraph-supervisor" },
     { name = "pandas" },
     { name = "redis" },
+    { name = "uvicorn" },
     { name = "xlrd" },
 ]
 
@@ -204,6 +205,7 @@ requires-dist = [
     { name = "langgraph-supervisor", specifier = ">=0.0.23" },
     { name = "pandas", specifier = ">=2.2.3" },
     { name = "redis", specifier = ">=6.1.0" },
+    { name = "uvicorn", specifier = ">=0.34.2" },
     { name = "xlrd", specifier = ">=2.0.1" },
 ]
 

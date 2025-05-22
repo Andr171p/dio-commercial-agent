@@ -59,7 +59,7 @@ class SupervisorAgent(BaseNode):
             "question": question
         })
         print(first_step)
-        if first_step.final_answer and not first_step.next_agent:
+        if first_step.final_answer:
             return Command(
                 update={"messages": [AIMessage(content=first_step.final_answer)]},
                 goto=END
@@ -120,7 +120,7 @@ class ConsultantAgent(BaseNode):
         )
 
     async def __call__(self, state: SupervisorState) -> dict[str, list[AIMessage | dict]]:
-        self.logger.info("---CALL ADVISER AGENT---")
+        self.logger.info("---CALL CONSULTANT AGENT---")
         messages = state["messages"]
         last_message = messages[-1].content
         summary = await self.messages_summarizer.summarize(messages)
