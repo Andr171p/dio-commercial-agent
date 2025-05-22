@@ -59,7 +59,7 @@ class SupervisorAgent(BaseNode):
             "question": question
         })
         print(first_step)
-        if first_step.final_answer:
+        if first_step.final_answer and not first_step.next_agent:
             return Command(
                 update={"messages": [AIMessage(content=first_step.final_answer)]},
                 goto=END
