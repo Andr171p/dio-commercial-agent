@@ -2,12 +2,12 @@ from typing import Optional
 
 from abc import ABC, abstractmethod
 
-from .schemas import BaseMessage
+from .entities import BaseMessage, UserMessage, AIMessage
 
 
 class AIAgent(ABC):
     @abstractmethod
-    async def generate(self, chat_id: str, text: str) -> str: pass
+    async def generate(self, user_message: UserMessage) -> AIMessage: pass
 
 
 class MessageRepository(ABC):

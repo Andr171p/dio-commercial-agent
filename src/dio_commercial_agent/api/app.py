@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from dishka.integrations.fastapi import setup_dishka
 
-from .ioc import container
-from .router import chat_router
+from src.dio_commercial_agent.ioc import container
+from src.dio_commercial_agent.api.router import chat_router
 
 
 def create_fastapi_app() -> FastAPI:

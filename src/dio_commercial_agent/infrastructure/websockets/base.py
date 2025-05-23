@@ -8,7 +8,7 @@ from pydantic import BaseModel
 from fastapi import WebSocket
 
 
-class BaseConnectionManager(ABC):
+class BaseSocketManager(ABC):
     @abstractmethod
     async def connect(self, websocket: WebSocket, connection_id: Union[str, UUID]) -> None: pass
 

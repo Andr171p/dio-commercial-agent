@@ -13,10 +13,10 @@ from .infrastructure.llms.yandex_gpt import YandexGPTChatModel
 from .infrastructure.checkpointers.redis import AsyncRedisCheckpointSaver
 from .infrastructure.vector_store import ServicesIndex, PriceListIndex
 
+from .agentic.orchestrator import OrchestratorAgent
 from .agentic.agents.supervisor.nodes import SupervisorAgent, ConsultantAgent, PriceListAgent
-from .agentic.multi_agentic import CommercialAgent
 
-from .base import AIAgent
+from .core.base import AIAgent
 from .settings import Settings
 from .constants import YANDEX_GPT_MODEL, TOP_K
 
@@ -106,7 +106,7 @@ class AppProvider(Provider):
             price_list: PriceListAgent,
             checkpoint_saver: BaseCheckpointSaver
     ) -> AIAgent:
-        return CommercialAgent(
+        return OrchestratorAgent(
             supervisor=supervisor,
             consultant=consultant,
             price_list=price_list,

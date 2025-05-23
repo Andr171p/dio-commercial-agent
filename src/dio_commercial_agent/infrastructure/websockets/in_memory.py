@@ -5,10 +5,10 @@ from uuid import UUID
 
 from fastapi import WebSocket
 
-from .base import BaseConnectionManager
+from .base import BaseSocketManager
 
 
-class InMemoryConnectionManager(BaseConnectionManager):
+class InMemorySocketManager(BaseSocketManager):
     def __init__(self) -> None:
         self.logger = logging.getLogger(self.__class__.__name__)
         self.active_connections: dict[str, WebSocket] = {}
