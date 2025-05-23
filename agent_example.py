@@ -2,8 +2,8 @@ import asyncio
 import logging
 from uuid import uuid4
 
-from src.dio_commercial_agent.base import AIAgent
 from src.dio_commercial_agent.ioc import container
+from src.dio_commercial_agent.core.base import AIAgent
 
 
 async def main() -> None:
