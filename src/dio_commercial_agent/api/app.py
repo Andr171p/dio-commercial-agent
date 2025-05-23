@@ -3,13 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from dishka.integrations.fastapi import setup_dishka
 
-from src.dio_commercial_agent.ioc import container
-from src.dio_commercial_agent.api import chat_router
+from ..ioc import container
+from .router import chat_router
+from .socket import chat_socket
 
 
 def create_fastapi_app() -> FastAPI:
     app = FastAPI()
     app.include_router(chat_router)
+    app.include_router(chat_socket)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
