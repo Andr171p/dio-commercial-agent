@@ -7,7 +7,7 @@ from ..core.base import AIAgent
 from ..core.entities import UserMessage, AIMessage
 
 
-class OrchestratorAgent(AIAgent):
+class CommercialAgent(AIAgent):
     def __init__(
             self,
             supervisor: SupervisorAgent,
