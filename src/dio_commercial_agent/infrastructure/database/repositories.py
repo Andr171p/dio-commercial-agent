@@ -4,8 +4,8 @@ from sqlalchemy import select
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from src.dio_commercial_agent.base import MessageRepository
-from src.dio_commercial_agent.api.schemas import BaseMessage
+from src.dio_commercial_agent.core.base import MessageRepository
+from src.dio_commercial_agent.core.entities import BaseMessage
 from .models import MessageOrm
 
 
